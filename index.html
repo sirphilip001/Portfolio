@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philip Kaplong — Data Analyst/Data Scientist</title>
+<meta name="description" content="Data Analyst in Nairobi turning raw data into clear dashboards and decisions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+<style>
+  /* ===== COLORS & BASICS (change colors here) ===== */
+  :root{
+    --bg:#faf7f2; --card:#ffffff; --ink:#1c1b22; --muted:#6b6a75;
+    --accent:#2f5bea; --accent-soft:#e8edff; --line:#e7e2d9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
+  h1,h2{font-family:'Fraunces',serif;line-height:1.15}
+  h1 em,h2 em{color:var(--accent);font-style:italic}
+  section{padding:90px 6%;max-width:1100px;margin:0 auto}
+  .label{color:var(--accent);font-weight:700;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+  h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:40px}
+  a{color:inherit}
+
+  /* ===== NAVIGATION ===== */
+  nav{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+      padding:16px 6%;background:rgba(250,247,242,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .logo{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem;text-decoration:none}
+  .logo span{color:var(--accent)}
+  nav ul{display:flex;gap:28px;list-style:none}
+  nav ul a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem}
+  nav ul a:hover{color:var(--accent)}
+
+  /* ===== BUTTONS ===== */
+  .btn{display:inline-block;padding:13px 26px;border-radius:999px;text-decoration:none;font-weight:700;font-size:.95rem;transition:.2s}
+  .btn.primary{background:var(--accent);color:#fff}
+  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(47,91,234,.3)}
+  .btn.ghost{border:1.5px solid var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:#fff}
+
+  /* ===== HERO ===== */
+  .hero{padding-top:110px}
+  .hero h1{font-size:clamp(2.3rem,6vw,4rem);max-width:800px;margin-bottom:22px}
+  .hero p{max-width:620px;color:var(--muted);font-size:1.1rem;margin-bottom:32px}
+  .hero .btns{display:flex;gap:14px;flex-wrap:wrap}
+  .stats{display:flex;gap:50px;flex-wrap:wrap;margin-top:60px;padding-top:30px;border-top:1px solid var(--line)}
+  .stats b{display:block;font-family:'Fraunces',serif;font-size:2rem;color:var(--accent)}
+  .stats span{color:var(--muted);font-size:.9rem}
+
+  /* ===== CARDS (services & projects) ===== */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;transition:.25s}
+  .card:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,0,.07)}
+  .card .icon{font-size:2rem;margin-bottom:12px}
+  .card h3{font-size:1.15rem;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.95rem;margin-bottom:14px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tags span{background:var(--accent-soft);color:var(--accent);font-size:.75rem;font-weight:700;padding:4px 11px;border-radius:999px}
+  a.card{display:block;text-decoration:none;color:inherit}
+  .card .link{display:inline-block;margin-top:14px;font-weight:700;font-size:.9rem;color:var(--accent)}
+
+  /* ===== SKILLS ===== */
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px}
+  .skills h3{margin-bottom:18px;font-size:1.05rem}
+  .bar{margin-bottom:16px}
+  .bar div.row{display:flex;justify-content:space-between;font-weight:500;font-size:.92rem;margin-bottom:6px}
+  .track{height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+  .fill{height:100%;background:var(--accent);border-radius:99px;width:0;transition:width 1.2s ease}
+
+  /* ===== ABOUT ===== */
+  .about{display:grid;grid-template-columns:280px 1fr;gap:50px;align-items:start}
+  .photo{width:100%;aspect-ratio:1;border-radius:22px;background:var(--accent-soft);display:grid;place-items:center;
+         font-family:'Fraunces',serif;font-size:4rem;color:var(--accent);overflow:hidden}
+  .photo img{width:100%;height:100%;object-fit:cover}
+  .about p{margin-bottom:16px;color:var(--muted)}
+  .about strong{color:var(--ink)}
+
+  /* ===== PROCESS ===== */
+  .step{display:flex;gap:22px;padding:26px 0;border-bottom:1px solid var(--line)}
+  .step .num{font-family:'Fraunces',serif;font-size:1.8rem;color:var(--accent);min-width:48px}
+  .step h3{margin-bottom:4px}
+  .step p{color:var(--muted)}
+
+  /* ===== CONTACT & FOOTER ===== */
+  .contact{text-align:center}
+  .contact p{max-width:560px;margin:-20px auto 30px;color:var(--muted)}
+  .contact .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  footer{text-align:center;padding:30px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
+
+  /* ===== MOBILE ===== */
+  @media(max-width:720px){
+    nav ul{gap:16px}
+    .about{grid-template-columns:1fr}
+    .photo{max-width:220px}
+    section{padding:70px 6%}
+  }
+  /* fade-in animation */
+  .reveal{opacity:0;transform:translateY(24px);transition:all .7s ease}
+  .reveal.show{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav>
+  <a href="#" class="logo">Philip Kaplong Kerongo<span>.</span></a>
+  <ul>
+    <li><a href="#about">About Me</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <p class="label">Data Analyst/Scientist · Nairobi, Kenya</p>
+  <h1>Turning <em>raw data</em> into decisions people can act on.</h1>
+  <p>I use SQL, Python and Power BI to clean data, find the story in it, and present it in clear dashboards that help teams make confident decisions.</p>
+  <div class="btns">
+    <a href="#contact" class="btn primary">Get in touch</a>
+    <a href="#projects" class="btn ghost">See my projects</a>
+  </div>
+  <div class="stats">
+    <div><b>SQL</b><span>PostgreSQL</span></div>
+    <div><b>Power BI</b><span>DAX &amp; Power Query</span></div>
+    <div><b>Python</b><span>Analysis &amp; APIs</span></div>
+    <div><b>AI</b><span>Where I'm headed</span></div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="reveal">
+  <p class="label">About me</p>
+  <h2>Hi, I'm <em>Philip</em></h2>
+  <div class="about">
+    <!-- To use your photo: put photo.jpg in the same folder, then replace PK with <img src="photo.jpg" alt="Philip Kerongo"> -->
+    <div class="photo">PK</div>
+    <div>
+      <p>I'm a <strong>data analyst based in Nairobi</strong>, working at Data Science East Africa since June 2025. I hold a Data Science and Analytics certification from LuxDevHQ, where I'm also deepening my skills in data science and AI.</p>
+      <p>My work starts with <strong>SQL</strong>: pulling, joining and cleaning data so it can be trusted. From there I use <strong>Power BI</strong> and <strong>Python</strong> to turn it into dashboards and insights people can actually use.</p>
+      <p>I'm ambitious and practical. I like learning by building real projects, and I'm growing toward <strong>AI and machine learning</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services" class="reveal">
+  <p class="label">What I do</p>
+  <h2>Services built around <em>your data</em></h2>
+  <div class="grid">
+    <div class="card">
+      <div class="icon">🗄️</div>
+      <h3>Data Extraction &amp; Cleaning</h3>
+      <p>I write SQL queries to pull exactly what's needed, then clean, deduplicate and structure it so every analysis is reliable.</p>
+      <div class="tags"><span>SQL</span><span>PostgreSQL</span><span>Python</span></div>
+    </div>
+    <div class="card">
+      <div class="icon">📊</div>
+      <h3>Dashboards &amp; Reporting</h3>
+      <p>Power BI dashboards with clear KPIs, interactive filters and well-designed data models that stakeholders can explore on their own.</p>
+      <div class="tags"><span>Power BI</span><span>DAX</span><span>Power Query</span></div>
+    </div>
+    <div class="card">
+      <div class="icon">📈</div>
+      <h3>Excel Analysis</h3>
+      <p>Well-structured Excel models with pivot tables, XLOOKUP and clean formulas your team can maintain without help.</p>
+      <div class="tags"><span>Excel</span><span>Pivot Tables</span><span>XLOOKUP</span></div>
+    </div>
+    <div class="card">
+      <div class="icon">⚙️</div>
+      <h3>APIs &amp; Data Apps</h3>
+      <p>Backend and data apps built with FastAPI, SQLAlchemy and Streamlit, from REST APIs to simple interactive tools.</p>
+      <div class="tags"><span>FastAPI</span><span>SQLAlchemy</span><span>Streamlit</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="reveal">
+  <p class="label">Selected work</p>
+  <h2>Projects I've <em>built</em></h2>
+  <div class="grid">
+    <div class="card">
+      <a href="https://github.com/sirphilip001/greenwood-academy-postgresql" class="card" target="_blank" rel="noopener">
+  <div class="icon">🏫</div>
+  <h3>Greenwood Academy Database</h3>
+  <p>A PostgreSQL school database designed from scratch with DDL and DML, joins, aggregates and CASE WHEN logic to answer real questions about the data.</p>
+  <div class="tags"><span>PostgreSQL</span><span>SQL</span></div>
+  <span class="link">View on GitHub →</span>
+</a>
+    <a href="https://github.com/sirphilip001/SALES_INVENTORY_SQL" class="card" target="_blank" rel="noopener">
+  <div class="icon">📦</div>
+  <h3>Sales &amp; Inventory Analysis</h3>
+  <p>A PostgreSQL database design and SQL query project for customer, product, sales, and inventory records. It demonstrates relational schema design, sample data loading, and SQL queries for retrieving, joining, summarizing, and reviewing inventory data.</p>
+  <div class="tags"><span>SQL</span><span>PostgreSQL</span></div>
+  <span class="link">View on GitHub →</span>
+</a>
+    <div class="card">
+      <div class="icon">📌</div>
+      <h3>Your next project here</h3>
+      <p>Copy one of these card blocks in the code, then change the icon, title, description and tags to add a new project.</p>
+      <div class="tags"><span>Power BI</span><span>Python</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="reveal">
+  <p class="label">Technical proficiency</p>
+  <h2>The tools I <em>work with</em></h2>
+  <div class="skills">
+    <div>
+      <h3>Core tools</h3>
+      <!-- Change data-level (0-100) to adjust each bar -->
+      <div class="bar"><div class="row"><span>SQL (PostgreSQL)</span><span>95%</span></div><div class="track"><div class="fill" data-level="85"></div></div></div>
+      <div class="bar"><div class="row"><span>Power BI &amp; DAX</span><span>80%</span></div><div class="track"><div class="fill" data-level="80"></div></div></div>
+      <div class="bar"><div class="row"><span>Excel</span><span>85%</span></div><div class="track"><div class="fill" data-level="85"></div></div></div>
+      <div class="bar"><div class="row"><span>Python</span><span>90%</span></div><div class="track"><div class="fill" data-level="80"></div></div></div>
+    </div>
+    <div>
+      <h3>Also in my toolkit</h3>
+      <div class="bar"><div class="row"><span>FastAPI &amp; SQLAlchemy</span><span>75%</span></div><div class="track"><div class="fill" data-level="75"></div></div></div>
+      <div class="bar"><div class="row"><span>Streamlit</span><span>70%</span></div><div class="track"><div class="fill" data-level="70"></div></div></div>
+      <div class="bar"><div class="row"><span>Git</span><span>75%</span></div><div class="track"><div class="fill" data-level="75"></div></div></div>
+      <div class="bar"><div class="row"><span>Machine learning (TensorFlow, PyTorch, Keras)</span><span>60%</span></div><div class="track"><div class="fill" data-level="60"></div></div></div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ===== PROCESS ===== -->
+<section id="process" class="reveal">
+  <p class="label">How I work</p>
+  <h2>From raw data to <em>clear insight</em></h2>
+  <div class="step"><div class="num">01</div><div><h3>Understand the question</h3><p>Every analysis starts with the business question, not the data.</p></div></div>
+  <div class="step"><div class="num">02</div><div><h3>Extract &amp; clean</h3><p>I pull the right data with SQL and handle nulls, duplicates and inconsistent formats.</p></div></div>
+  <div class="step"><div class="num">03</div><div><h3>Analyse &amp; find the story</h3><p>I look for patterns, trends and anomalies that answer the question.</p></div></div>
+  <div class="step"><div class="num">04</div><div><h3>Visualise</h3><p>I build dashboards designed for the people who will use them.</p></div></div>
+  <div class="step"><div class="num">05</div><div><h3>Recommend</h3><p>Every deliverable ends with a plain-language summary of what to do next.</p></div></div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="contact reveal">
+  <p class="label">Let's work together</p>
+  <h2>Have data to <em>untangle?</em></h2>
+  <p>Whether it's a one-off analysis, a recurring dashboard or a messy dataset, send me a message and let's talk.</p>
+  <div class="btns">
+   <a href="https://mail.google.com/mail/?view=cm&to=sirphilip001@gmail.com&su=Hello%20Philip" class="btn primary" target="_blank" rel="noopener">Email me</a>
+    <!-- TODO: replace with your real links -->
+    <a href="https://www.linkedin.com/in/philip-kaplong-745133195/" class="btn ghost" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/sirphilip001" class="btn ghost" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</section>
+
+<footer>© 2026 Philip Kaplong Kerongo · Data Analyst/Data Scientist · Nairobi, Kenya</footer>
+
+<script>
+  // Fade sections in as you scroll, and animate skill bars
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('show');
+        e.target.querySelectorAll('.fill').forEach(f => f.style.width = f.dataset.level + '%');
+      }
+    });
+  }, {threshold: 0.15});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
